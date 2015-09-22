@@ -1,0 +1,9 @@
+.ui.container
+  .ui.segment
+    p( ng-bind="announcement.text" )
+
+  .ui.container.segment.vertical
+    a( ng-repeat="image in announcement.images" ng-href="{{image.picture.url}}" )
+      img.floated.ui.image.small( ng-src="{{image.picture.url}}" )
+
+

@@ -9,6 +9,10 @@ angular.module('board')
         templateUrl: '/assets/templates/new.html',
         controller: 'NewController'
       })
+      .when('/announcements/:id', {
+        templateUrl: '/assets/templates/show.html',
+        controller: 'ShowController'
+      })
       .otherwise({redirectTo: '/' })
 
       $locationProvider.html5Mode({enabled: true, requireBase: false})

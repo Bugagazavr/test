@@ -4,10 +4,16 @@ class Api::AnnouncementsController < ApplicationController
     @announcements = Announcement
       .limit(10)
       .offset(params[:offset].to_i)
+      .order('created_at DESC')
 
     render json: @announcements.to_json(include: :images)
   end
 
+  def show
+    @announcement = Announcement.find(params[:id])
+
+    render json: @announcement.to_json(include: :images)
+  end
 
   def create
     @announcement = Announcement.new(announcement_params)
@@ -15,7 +21,7 @@ class Api::AnnouncementsController < ApplicationController
     if @announcement.save
       render json: @announcement
     else
-      render json: @announcement.errors
+      render json: @announcement.errors, status: :bad_request
     end
   end
 
