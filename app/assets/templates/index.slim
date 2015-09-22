@@ -1,7 +1,10 @@
-.ui.link.cards
-  a.card( ng-repeat="item in announcements" ing-href="{{'/announcements/' + item.id}}" )
-    img.ui.image.medium( ng-src="{{item.images[0].picture.url}}" ng-if="item.images.length > 0" )
-    .content( ng-bind="truncatedText()" )
+.ui.container
+  .ui.link.cards
+    a.card( ng-repeat="item in announcements" ng-href="{{'/announcements/' + item.id}}" )
+      img.ui.image.medium( ng-src="{{item.images[0].picture.url}}" ng-if="item.images.length > 0" )
+      .content( ng-bind="truncatedText()" )
 
-
+.ui.container.segment.vertical
+  .ui.button.massive( ng-hide="announcements.length != offset+10" ng-click="loadMore()" )
+    | Загрузить еще
 

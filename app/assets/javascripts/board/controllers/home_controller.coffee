@@ -1,16 +1,16 @@
 angular.module('board')
   .controller 'HomeController', ['$scope', 'announcements', ($scope, announcements) ->
-    offset = 0
+    $scope.offset = 0
 
     $scope.announcements = []
 
     fetchAnnouncements = () ->
-      announcements.get(offset).then((response) ->
+      announcements.getWithOffset($scope.offset).then((response) ->
         if response.status == 200
           if $scope.announcements.length == 0
             $scope.announcements = response.data
           else
-            $scope.announcements.concat(response.data)
+            $scope.announcements = $scope.announcements.concat(response.data)
         else
           $scope.erorrs = "Something going wrong"
       )
@@ -22,7 +22,7 @@ angular.module('board')
         this.item.text
 
     $scope.loadMore = () ->
-      offset += 10
+      $scope.offset += 10
       fetchAnnouncements()
 
     fetchAnnouncements()
