@@ -1,1 +1,7 @@
-div( ng-repeat="item in cards track by item" card )
+.ui.link.cards
+  a.card( ng-repeat="item in announcements" ing-href="{{'/announcements/' + item.id}}" )
+    img.ui.image.medium( ng-src="{{item.images[0].picture.url}}" ng-if="item.images.length > 0" )
+    .content( ng-bind="truncatedText()" )
+
+
+

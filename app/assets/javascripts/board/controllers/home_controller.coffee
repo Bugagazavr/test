@@ -7,10 +7,19 @@ angular.module('board')
     fetchAnnouncements = () ->
       announcements.get(offset).then((response) ->
         if response.status == 200
-          $scope.announcements.concat(response.data)
+          if $scope.announcements.length == 0
+            $scope.announcements = response.data
+          else
+            $scope.announcements.concat(response.data)
         else
           $scope.erorrs = "Something going wrong"
       )
+
+    $scope.truncatedText = () ->
+      if this.item.text != null && this.item.text.length > 30
+        this.item.text.substring(0,30) + "..."
+      else
+        this.item.text
 
     $scope.loadMore = () ->
       offset += 10

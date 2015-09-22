@@ -1,6 +1,7 @@
 .ui.container.segment.masthead.vertical
-  .ui.container
-    .ui.button.green
+  .ui.container( ng-controller="NavigationController" )
+    a.ui.button.green( ng-href="/new" ng-if="isActive('/')" )
       | Добавить объявление
-
+    a.ui.button.primary( ng-href="/" ng-if="isNotActive('/')" )
+      | Вернуться к списку объявлений
   .ui.container.segment.vertical( ng-view="" )

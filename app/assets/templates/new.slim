@@ -9,7 +9,7 @@ form.ui.form( ng-submit="submitForm()" )
       label
         i.massive.plus.icon
         input.ng-hide#uploader( type="file" uploader multiple)
-      img.floated.ui.small.image( ng-repeat="image in images" ng-src="{{image}}" )
+      img.floated.ui.small.image( ng-repeat="image in images" src="{{image}}" )
   
   .ui.conainer
     button.ui.button.primary( type="submit" )
