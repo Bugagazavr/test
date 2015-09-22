@@ -1,15 +1,16 @@
-form.ui.form
+form.ui.form( ng-submit="submitForm()" )
   .field
     .label Текст
-    textarea 
+    textarea( ng-model="form.text" ) 
 
   .ui.container
     .ui.header Изображения
     .ui.container
       label
         i.massive.plus.icon
-        input.ng-hide#uploader( type="file" multiple)
-
+        input.ng-hide#uploader( type="file" uploader multiple)
+      img.floated.ui.small.image( ng-repeat="image in images" ng-src="{{image}}" )
+  
   .ui.conainer
     button.ui.button.primary( type="submit" )
       | Отправить

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :announcements, only: [:index, :create]
+    post 'images', to: 'images#create'
   end
 
   get '*path', to: 'home#index'

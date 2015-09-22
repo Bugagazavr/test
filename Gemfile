@@ -25,6 +25,8 @@ gem 'angularjs-rails', '~> 1.4.4'
 gem 'semantic-ui-sass', '~> 2.1.3'
 # Slim support
 gem 'slim-rails', '~> 3.0.1'
+# Carrierwave uploader
+gem 'carrierwave', '~> 0.10.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
