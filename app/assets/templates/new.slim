@@ -1,3 +1,7 @@
+.ui.negative.message( ng-if="errors.length > 1" )
+  ul.list( ng-repeat="error in errors" )
+    li( ng-bind="error" )
+
 form.ui.form( ng-submit="submitForm()" )
   .field
     .label Текст

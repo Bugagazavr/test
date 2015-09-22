@@ -6,7 +6,7 @@ class Api::ImagesController < ApplicationController
     if @image.save
       render json: @image
     else
-      render json: @image.errors
+      render json: @image.errors, status: :bad_request
     end
   end
 
