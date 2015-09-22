@@ -4,6 +4,5 @@ angular.module('board')
        path == $location.path()
     
     $scope .isNotActive = (path) ->
-      console.log(path, $location.path())
       path != $location.path()
   ])
